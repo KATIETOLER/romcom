@@ -9,8 +9,18 @@ var makeNewButton = document.querySelector('.make-new-button');
 var homeView = document.querySelector('.home-view');
 var saveCoverButton = document.querySelector('.save-cover-button');
 var homeButton = document.querySelector('.home-button');
-var savedView = document.querySelector('.saved-view')
-var savedViewButton = document.querySelector('.view-saved-button')
+var savedView = document.querySelector('.saved-view');
+var savedViewButton = document.querySelector('.view-saved-button');
+
+var userCoverInput = document.querySelector('.user-cover');
+var userTitleInput = document.querySelector('.user-title');
+var userDescOne = document.querySelector('.user-desc1');
+var userDescTwo = document.querySelector('.user-desc2');
+var makeMyCoverButton = document.querySelector('.create-new-book-button');
+
+
+
+
 // We've provided a few variables below
 var savedCovers = [
   new Cover("http://3.bp.blogspot.com/-iE4p9grvfpQ/VSfZT0vH2UI/AAAAAAAANq8/wwQZssi-V5g/s1600/Do%2BNot%2BForsake%2BMe%2B-%2BImage.jpg", "Sunsets and Sorrows", "sunsets", "sorrows")
@@ -23,8 +33,31 @@ randomButton.addEventListener('click', randomCover)
 makeNewButton.addEventListener('click', displayFormView)
 savedViewButton.addEventListener('click', displayPageCovers)
 homeButton.addEventListener('click', displayHome)
+makeMyCoverButton.addEventListener('click', displayUserCover)
+
+function makeCover() {
+  currentCover = new Cover(
+    covers[covers.length-1],
+    titles[titles.length-1],  
+    descriptors[descriptors.length-2],
+    descriptors[descriptors.length-1]
+  )
+  coverImage.src = currentCover.cover;
+  coverTitle.innerText = currentCover.title;
+  taglineOne.innerText = currentCover.tagline1;
+  taglineTwo.innerText = currentCover.tagline2;
+};
 
 
+function displayUserCover(event) {
+  event.preventDefault();
+  homeView.classList.remove('hidden');
+  covers.push(userCoverInput.value);
+  titles.push(userTitleInput.value);
+  descriptors.push(userDescOne.value);
+  descriptors.push(userDescTwo.value);
+  makeCover();
+}
 
 function displayHome() {
   homeView.classList.remove('hidden')
@@ -33,7 +66,7 @@ function displayHome() {
   randomButton.classList.remove('hidden')
   saveCoverButton.classList.remove('hidden')
   homeButton.classList.add('hidden')
-}
+};
 
 
 function displayPageCovers() {
@@ -43,7 +76,7 @@ function displayPageCovers() {
   randomButton.classList.add('hidden')
   saveCoverButton.classList.add('hidden')
   homeButton.classList.remove('hidden')
-}
+};
 
 
 function displayFormView() {
@@ -52,7 +85,7 @@ function displayFormView() {
   randomButton.classList.add('hidden')
   saveCoverButton.classList.add('hidden')
   homeButton.classList.remove('hidden')
-}
+};
 
 
 // Create your event handlers and other functions here 👇
@@ -65,7 +98,7 @@ function randomCover() {
   )
     coverImage.src = currentCover.cover;
     coverTitle.innerText = currentCover.title;
-    tagelineOne.innerText = currentCover.tagline1;
+    taglineOne.innerText = currentCover.tagline1;
     tagLineTwo.innerText = currentCover.tagline2;
 };
 
