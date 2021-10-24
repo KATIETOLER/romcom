@@ -11,12 +11,12 @@ var saveCoverButton = document.querySelector('.save-cover-button');
 var homeButton = document.querySelector('.home-button');
 var savedView = document.querySelector('.saved-view');
 var savedViewButton = document.querySelector('.view-saved-button');
-
 var userCoverInput = document.querySelector('.user-cover');
 var userTitleInput = document.querySelector('.user-title');
 var userDescOne = document.querySelector('.user-desc1');
 var userDescTwo = document.querySelector('.user-desc2');
 var makeMyCoverButton = document.querySelector('.create-new-book-button');
+var savedCoversSection = document.querySelector('.saved-covers-section')
 
 
 
@@ -34,6 +34,33 @@ makeNewButton.addEventListener('click', displayFormView)
 savedViewButton.addEventListener('click', displayPageCovers)
 homeButton.addEventListener('click', displayHome)
 makeMyCoverButton.addEventListener('click', displayUserCover)
+saveCoverButton.addEventListener('click', addCover)
+savedViewButton.addEventListener('click', showCover)
+
+function addCover() {
+if(!savedCovers.includes(currentCover)) {
+  savedCovers.push(currentCover)
+  }
+};
+
+function showCover() {
+savedCoversSection.innerHTML = ""
+for(var i = 0; i < savedCovers.length; i++ ) {
+savedCoversSection.innerHTML +=
+  `<section class="main-cover">
+  <img class="cover-image" id=${savedCovers[i].id} src=${savedCovers[i].cover}>
+  <h2 class="cover-title">${savedCovers[i].title}</h2>
+  <h3 class="tagline">A tale of <span class="tagline-1">${savedCovers[i].tagline1}</span>
+  and <span class="tagline-2">${savedCovers[i].tagline2}</span></h3>
+  </section>`
+  }
+};
+
+
+
+//push into the savedCovers array
+// use if/statement to remove duplicates
+//show array
 
 function makeCover() {
   currentCover = new Cover(
@@ -57,7 +84,7 @@ function displayUserCover(event) {
   descriptors.push(userDescOne.value);
   descriptors.push(userDescTwo.value);
   makeCover();
-}
+};
 
 function displayHome() {
   homeView.classList.remove('hidden')
@@ -100,7 +127,6 @@ function randomCover() {
     coverTitle.innerText = currentCover.title;
     taglineOne.innerText = currentCover.tagline1;
     tagLineTwo.innerText = currentCover.tagline2;
-    
 };
 
 
