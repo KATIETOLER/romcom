@@ -116,6 +116,7 @@ function displayFormView() {
 
 
 // Create your event handlers and other functions here 👇
+
 function randomCover() {
   currentCover = new Cover(
     covers[getRandomIndex(covers)],
@@ -126,7 +127,7 @@ function randomCover() {
     coverImage.src = currentCover.cover;
     coverTitle.innerText = currentCover.title;
     taglineOne.innerText = currentCover.tagline1;
-    tagLineTwo.innerText = currentCover.tagline2;
+    taglineTwo.innerText = currentCover.tagline2;
 };
 
 
