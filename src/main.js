@@ -38,7 +38,7 @@ makeMyCoverButton.addEventListener('click', displayUserCover)
 function makeCover() {
   currentCover = new Cover(
     covers[covers.length-1],
-    titles[titles.length-1],  
+    titles[titles.length-1],
     descriptors[descriptors.length-2],
     descriptors[descriptors.length-1]
   )
@@ -100,6 +100,7 @@ function randomCover() {
     coverTitle.innerText = currentCover.title;
     taglineOne.innerText = currentCover.tagline1;
     tagLineTwo.innerText = currentCover.tagline2;
+    
 };
 
 
