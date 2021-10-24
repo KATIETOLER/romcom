@@ -37,21 +37,21 @@ function displayHome() {
 
 
 function displayPageCovers() {
-homeView.classList.add('hidden')
-formView.classList.add('hidden')
-savedView.classList.remove('hidden')
-randomButton.classList.add('hidden')
-saveCoverButton.classList.add('hidden')
-homeButton.classList.remove('hidden')
+  homeView.classList.add('hidden')
+  formView.classList.add('hidden')
+  savedView.classList.remove('hidden')
+  randomButton.classList.add('hidden')
+  saveCoverButton.classList.add('hidden')
+  homeButton.classList.remove('hidden')
 }
 
 
 function displayFormView() {
-formView.classList.remove('hidden')
-homeView.classList.add('hidden')
-randomButton.classList.add('hidden')
-saveCoverButton.classList.add('hidden')
-homeButton.classList.remove('hidden')
+  formView.classList.remove('hidden')
+  homeView.classList.add('hidden')
+  randomButton.classList.add('hidden')
+  saveCoverButton.classList.add('hidden')
+  homeButton.classList.remove('hidden')
 }
 
 
@@ -63,10 +63,10 @@ function randomCover() {
     descriptors[getRandomIndex(descriptors)],
     descriptors[getRandomIndex(descriptors)]
   )
-  coverImage.src = currentCover.cover;
-  coverTitle.innerText = currentCover.title;
-  tagelineOne.innerText = currentCover.tagline1;
-  tagLineTwo.innerText = currentCover.tagline2;
+    coverImage.src = currentCover.cover;
+    coverTitle.innerText = currentCover.title;
+    tagelineOne.innerText = currentCover.tagline1;
+    tagLineTwo.innerText = currentCover.tagline2;
 };
 
 
