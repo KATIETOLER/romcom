@@ -124,6 +124,7 @@ function displayFormView() {
 
 
 // Create your event handlers and other functions here 👇
+
 function randomCover() {
   currentCover = new Cover(
     covers[getRandomIndex(covers)],
