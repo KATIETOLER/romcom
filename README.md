@@ -1,5 +1,7 @@
 # RomCom
+
 ## Romance Book Cover Generator!
+
 
 *Contributors: Katie Toler, Evan Wheeler
 *Technologies used: JS, CSS, HTML

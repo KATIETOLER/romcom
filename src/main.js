@@ -28,14 +28,26 @@ var savedCovers = [
 var currentCover;
 
 // Add your event listeners here 👇
-window.addEventListener('load', randomCover)
-randomButton.addEventListener('click', randomCover)
-makeNewButton.addEventListener('click', displayFormView)
-savedViewButton.addEventListener('click', displayPageCovers)
-homeButton.addEventListener('click', displayHome)
-makeMyCoverButton.addEventListener('click', displayUserCover)
-saveCoverButton.addEventListener('click', addCover)
-savedViewButton.addEventListener('click', showCover)
+window.addEventListener('load', randomCover);
+randomButton.addEventListener('click', randomCover);
+makeNewButton.addEventListener('click', displayFormView);
+savedViewButton.addEventListener('click', displayPageCovers);
+homeButton.addEventListener('click', displayHome);
+makeMyCoverButton.addEventListener('click', displayUserCover);
+saveCoverButton.addEventListener('click', addCover);
+savedViewButton.addEventListener('click', showCover);
+savedCoversSection.addEventListener('dblclick', deleteCover);
+
+function deleteCover(event) {
+  var selectedTarget = event.target.id
+  for(var i = 0; i < savedCovers.length; i++) {
+    if(`${savedCovers[i].id}` === selectedTarget) {
+    savedCovers.splice(i, 1)
+    }
+  }
+  showCover();
+};
+
 
 function addCover() {
 if(!savedCovers.includes(currentCover)) {
@@ -57,10 +69,6 @@ function showCover() {
 };
 
 
-
-//push into the savedCovers array
-// use if/statement to remove duplicates
-//show array
 
 function makeCover() {
   currentCover = new Cover(
